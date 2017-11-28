@@ -6,6 +6,7 @@
 package proyectoPresentacion;
 
 import Control.Control;
+import DTO.ClienteDTO;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Panel;
@@ -14,6 +15,8 @@ import java.util.Observer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import validadores_147333.Validadores;
 
 /**
  *
@@ -21,11 +24,20 @@ import javax.swing.ImageIcon;
  */
 public class PantallaPrincipal extends javax.swing.JFrame {
 
+    Validadores validador = new Validadores();
+
     static Control c = new Control();
     static String[] argss;
     Panel panel = new Panel();
+    ClienteDTO cliente;
 
-    
+    Thread t1 = new Thread() {
+        public void run() {
+
+            c.ConsultarUbicacion(PantallaPrincipal.argss, tfDireccion.getText());
+
+        }
+    };
 
     /**
      * Creates new form PantallaPrincipal
@@ -33,11 +45,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     public PantallaPrincipal() {
 
         initComponents();
-
-
+        PanelMR.setVisible(false);
+        this.revalidate();
     }
-
-   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,7 +59,45 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         panel1 = new javax.swing.JPanel();
+        Contenedor = new javax.swing.JPanel();
+        Menu = new javax.swing.JPanel();
         btnMenuRapido = new javax.swing.JButton();
+        PanelMR = new javax.swing.JPanel();
+        tfTelefono = new javax.swing.JTextField();
+        btnVerificar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        PanelCliente = new javax.swing.JPanel();
+        btnVerMapa = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        btnGuardar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        tfNombre = new javax.swing.JTextField();
+        tfDireccion = new javax.swing.JTextField();
+        tfTelefono2 = new javax.swing.JTextField();
+        btnRegistrarCliente = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
+        PanelPedido = new javax.swing.JPanel();
+        btn1 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        btn8 = new javax.swing.JButton();
+        btn4 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        btn3 = new javax.swing.JButton();
+        btn = new javax.swing.JButton();
+        btn9 = new javax.swing.JButton();
+        btn10 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        btn2 = new javax.swing.JButton();
+        btn11 = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -59,12 +107,15 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(390, 430));
         setMinimumSize(new java.awt.Dimension(390, 430));
-        setPreferredSize(new java.awt.Dimension(390, 430));
+        setPreferredSize(new java.awt.Dimension(638, 430));
 
         panel1.setMaximumSize(new java.awt.Dimension(390, 430));
         panel1.setMinimumSize(new java.awt.Dimension(390, 430));
         panel1.setPreferredSize(new java.awt.Dimension(390, 430));
         panel1.setVerifyInputWhenFocusTarget(false);
+        panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Contenedor.setLayout(new java.awt.CardLayout());
 
         btnMenuRapido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/menuRapido.png"))); // NOI18N
         btnMenuRapido.setBorderPainted(false);
@@ -87,22 +138,428 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
-        panel1.setLayout(panel1Layout);
-        panel1Layout.setHorizontalGroup(
-            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(110, 110, 110)
+        javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
+        Menu.setLayout(MenuLayout);
+        MenuLayout.setHorizontalGroup(
+            MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MenuLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
                 .addComponent(btnMenuRapido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(491, Short.MAX_VALUE))
         );
-        panel1Layout.setVerticalGroup(
-            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(132, 132, 132)
+        MenuLayout.setVerticalGroup(
+            MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MenuLayout.createSequentialGroup()
+                .addGap(93, 93, 93)
                 .addComponent(btnMenuRapido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(248, Short.MAX_VALUE))
+                .addContainerGap(340, Short.MAX_VALUE))
         );
+
+        Contenedor.add(Menu, "card3");
+
+        tfTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfTelefonoKeyReleased(evt);
+            }
+        });
+
+        btnVerificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/verificar.png"))); // NOI18N
+        btnVerificar.setBorderPainted(false);
+        btnVerificar.setContentAreaFilled(false);
+        btnVerificar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnVerificar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnVerificar.setMaximumSize(new java.awt.Dimension(147, 50));
+        btnVerificar.setMinimumSize(new java.awt.Dimension(147, 50));
+        btnVerificar.setPreferredSize(new java.awt.Dimension(147, 50));
+        btnVerificar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/verificar3.png"))); // NOI18N
+        btnVerificar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/verificar2.png"))); // NOI18N
+        btnVerificar.setEnabled(false);
+        btnVerificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerificarActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Teléfono:");
+
+        javax.swing.GroupLayout PanelMRLayout = new javax.swing.GroupLayout(PanelMR);
+        PanelMR.setLayout(PanelMRLayout);
+        PanelMRLayout.setHorizontalGroup(
+            PanelMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelMRLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addGroup(PanelMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelMRLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tfTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelMRLayout.createSequentialGroup()
+                        .addComponent(btnVerificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(59, 59, 59)))
+                .addContainerGap(350, Short.MAX_VALUE))
+        );
+        PanelMRLayout.setVerticalGroup(
+            PanelMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelMRLayout.createSequentialGroup()
+                .addGap(99, 99, 99)
+                .addGroup(PanelMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
+                .addComponent(btnVerificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(296, Short.MAX_VALUE))
+        );
+
+        Contenedor.add(PanelMR, "card2");
+
+        btnVerMapa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/verMapa.png"))); // NOI18N
+        btnVerMapa.setBorderPainted(false);
+        btnVerMapa.setContentAreaFilled(false);
+        btnVerMapa.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnVerMapa.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnVerMapa.setMaximumSize(new java.awt.Dimension(147, 50));
+        btnVerMapa.setMinimumSize(new java.awt.Dimension(147, 50));
+        btnVerMapa.setPreferredSize(new java.awt.Dimension(147, 50));
+        btnVerMapa.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/verMapa3.png"))); // NOI18N
+        btnVerMapa.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/verMapa2.png"))); // NOI18N
+        btnVerMapa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerMapaActionPerformed(evt);
+            }
+        });
+
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/eliminar.png"))); // NOI18N
+        btnEliminar.setBorderPainted(false);
+        btnEliminar.setContentAreaFilled(false);
+        btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEliminar.setMaximumSize(new java.awt.Dimension(147, 50));
+        btnEliminar.setMinimumSize(new java.awt.Dimension(147, 50));
+        btnEliminar.setPreferredSize(new java.awt.Dimension(147, 50));
+        btnEliminar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/eliminar3.png"))); // NOI18N
+        btnEliminar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/eliminar2.png"))); // NOI18N
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setText("Datos del cliente");
+
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/guardar.png"))); // NOI18N
+        btnGuardar.setBorderPainted(false);
+        btnGuardar.setContentAreaFilled(false);
+        btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnGuardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnGuardar.setMaximumSize(new java.awt.Dimension(147, 50));
+        btnGuardar.setMinimumSize(new java.awt.Dimension(147, 50));
+        btnGuardar.setPreferredSize(new java.awt.Dimension(147, 50));
+        btnGuardar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/guardar3.png"))); // NOI18N
+        btnGuardar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/guardar2.png"))); // NOI18N
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Nombre:");
+
+        jLabel4.setText("Dirección:");
+
+        jLabel5.setText("Teléfono:");
+
+        tfTelefono2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfTelefono2KeyReleased(evt);
+            }
+        });
+
+        btnRegistrarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/registrarOrden.png"))); // NOI18N
+        btnRegistrarCliente.setBorderPainted(false);
+        btnRegistrarCliente.setContentAreaFilled(false);
+        btnRegistrarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnRegistrarCliente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnRegistrarCliente.setMaximumSize(new java.awt.Dimension(147, 50));
+        btnRegistrarCliente.setMinimumSize(new java.awt.Dimension(147, 50));
+        btnRegistrarCliente.setPreferredSize(new java.awt.Dimension(147, 50));
+        btnRegistrarCliente.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/registrarOrden3.png"))); // NOI18N
+        btnRegistrarCliente.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/registrarOrden2.png"))); // NOI18N
+        btnRegistrarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarClienteActionPerformed(evt);
+            }
+        });
+
+        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/actualizar.png"))); // NOI18N
+        btnActualizar.setBorderPainted(false);
+        btnActualizar.setContentAreaFilled(false);
+        btnActualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnActualizar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnActualizar.setMaximumSize(new java.awt.Dimension(147, 50));
+        btnActualizar.setMinimumSize(new java.awt.Dimension(147, 50));
+        btnActualizar.setPreferredSize(new java.awt.Dimension(147, 50));
+        btnActualizar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/actualizar3.png"))); // NOI18N
+        btnActualizar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/actualizar2.png"))); // NOI18N
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelClienteLayout = new javax.swing.GroupLayout(PanelCliente);
+        PanelCliente.setLayout(PanelClienteLayout);
+        PanelClienteLayout.setHorizontalGroup(
+            PanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelClienteLayout.createSequentialGroup()
+                .addGroup(PanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelClienteLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelClienteLayout.createSequentialGroup()
+                        .addGap(138, 138, 138)
+                        .addComponent(jLabel2)))
+                .addContainerGap(335, Short.MAX_VALUE))
+            .addGroup(PanelClienteLayout.createSequentialGroup()
+                .addGroup(PanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelClienteLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(PanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelClienteLayout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PanelClienteLayout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfTelefono2, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(PanelClienteLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(PanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelClienteLayout.createSequentialGroup()
+                                .addGap(99, 99, 99)
+                                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18))
+                            .addGroup(PanelClienteLayout.createSequentialGroup()
+                                .addGroup(PanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnRegistrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(46, 46, 46)
+                                .addGroup(PanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnVerMapa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        PanelClienteLayout.setVerticalGroup(
+            PanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelClienteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addGroup(PanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(18, 18, 18)
+                .addGroup(PanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(tfDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(PanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(tfTelefono2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnVerMapa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRegistrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(156, Short.MAX_VALUE))
+        );
+
+        Contenedor.add(PanelCliente, "card4");
+
+        btn1.setText("jButton2");
+        btn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn1ActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Tacos");
+
+        btn8.setText("jButton2");
+        btn8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn8ActionPerformed(evt);
+            }
+        });
+
+        btn4.setText("jButton2");
+        btn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4ActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Tacos");
+
+        jLabel8.setText("Tacos");
+
+        jLabel9.setText("Tacos");
+
+        btn3.setText("jButton2");
+        btn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3ActionPerformed(evt);
+            }
+        });
+
+        btn.setText("jButton2");
+        btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActionPerformed(evt);
+            }
+        });
+
+        btn9.setText("jButton2");
+        btn9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn9ActionPerformed(evt);
+            }
+        });
+
+        btn10.setText("jButton2");
+        btn10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn10ActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setText("Tacos");
+
+        jLabel11.setText("Tacos");
+
+        jLabel12.setText("Tacos");
+
+        btn2.setText("jButton2");
+        btn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn2ActionPerformed(evt);
+            }
+        });
+
+        btn11.setText("jButton2");
+        btn11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn11ActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText("Tacos");
+
+        jLabel14.setText("Tacos");
+
+        javax.swing.GroupLayout PanelPedidoLayout = new javax.swing.GroupLayout(PanelPedido);
+        PanelPedido.setLayout(PanelPedidoLayout);
+        PanelPedidoLayout.setHorizontalGroup(
+            PanelPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelPedidoLayout.createSequentialGroup()
+                .addGroup(PanelPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelPedidoLayout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(jLabel10))
+                    .addGroup(PanelPedidoLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(PanelPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn3)
+                            .addComponent(btn)
+                            .addComponent(btn8)
+                            .addGroup(PanelPedidoLayout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addGroup(PanelPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel9))))))
+                .addGap(85, 85, 85)
+                .addGroup(PanelPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn1)
+                    .addComponent(btn4)
+                    .addComponent(btn11)
+                    .addGroup(PanelPedidoLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(PanelPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel14))))
+                .addGap(87, 87, 87)
+                .addGroup(PanelPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn2)
+                    .addComponent(btn10)
+                    .addComponent(btn9)
+                    .addGroup(PanelPedidoLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(PanelPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel12))))
+                .addContainerGap(48, Short.MAX_VALUE))
+        );
+        PanelPedidoLayout.setVerticalGroup(
+            PanelPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelPedidoLayout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addGroup(PanelPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(PanelPedidoLayout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn2))
+                    .addGroup(PanelPedidoLayout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn1))
+                    .addGroup(PanelPedidoLayout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn)))
+                .addGap(43, 43, 43)
+                .addGroup(PanelPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(PanelPedidoLayout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn3))
+                    .addGroup(PanelPedidoLayout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn4))
+                    .addGroup(PanelPedidoLayout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn10)))
+                .addGap(51, 51, 51)
+                .addGroup(PanelPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(PanelPedidoLayout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn8))
+                    .addGroup(PanelPedidoLayout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn11))
+                    .addGroup(PanelPedidoLayout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn9)))
+                .addContainerGap(62, Short.MAX_VALUE))
+        );
+
+        Contenedor.add(PanelPedido, "card5");
+
+        panel1.add(Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -128,11 +585,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         panel1.getAccessibleContext().setAccessibleName("");
@@ -144,16 +601,20 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void btnMenuRapidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuRapidoActionPerformed
         // TODO add your handling code here:
-        MenuRapido mr = new MenuRapido();
-        
-        panel1.removeAll();
+//        MenuRapido mr = new MenuRapido();
+//
+//        panel1.removeAll();
+//
+//        panel1.add(mr);
+//        panel1.revalidate();
+//        panel1.repaint();
+//        // this.resize(391, 400);
+//        this.setLocationRelativeTo(null);
 
-        panel1.add(mr);
-        panel1.revalidate();
-        panel1.repaint();
-        this.resize(391, 400);
-        this.setLocationRelativeTo(null);
-
+        Contenedor.removeAll();
+        Contenedor.add(PanelMR);
+        Contenedor.repaint();
+        Contenedor.revalidate();
 
     }//GEN-LAST:event_btnMenuRapidoActionPerformed
 
@@ -171,8 +632,168 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void btnMenuRapidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMenuRapidoMouseEntered
-            
+
     }//GEN-LAST:event_btnMenuRapidoMouseEntered
+
+    private void tfTelefonoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfTelefonoKeyReleased
+        if (validador.validaEnteroMaxDigitos(10, tfTelefono.getText()) && validador.validaEntero(tfTelefono.getText())) {
+            btnVerificar.setEnabled(true);
+        } else {
+            btnVerificar.setEnabled(false);
+        }
+
+    }//GEN-LAST:event_tfTelefonoKeyReleased
+
+    private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
+        // TODO add your handling code here:
+        try {
+
+            cliente = PantallaPrincipal.c.buscar(new ClienteDTO(tfTelefono.getText()));
+            if (cliente.getIdCliente() != null) {
+
+                Contenedor.removeAll();
+                Contenedor.add(PanelCliente);
+                btnGuardar.hide();
+                // cliente = new ClienteDTO(cliente);
+                tfNombre.setText(cliente.getNombre());
+                tfDireccion.setText(cliente.getDireccion());
+                tfTelefono2.setText(String.valueOf(cliente.getTelefono()));
+
+                tfNombre.setEnabled(false);
+                tfDireccion.setEnabled(false);
+                tfTelefono2.setEnabled(false);
+                Contenedor.repaint();
+                Contenedor.revalidate();
+
+            }
+        } catch (Exception e) {
+            Contenedor.removeAll();
+            Contenedor.add(PanelCliente);
+            tfTelefono.setText(tfTelefono.getText());
+            btnRegistrarCliente.setEnabled(false);
+            btnVerMapa.setEnabled(false);
+            btnActualizar.setEnabled(false);
+            btnEliminar.setEnabled(false);
+            tfTelefono2.setEnabled(false);
+            Contenedor.repaint();
+            Contenedor.revalidate();
+        }
+
+    }//GEN-LAST:event_btnVerificarActionPerformed
+
+    private void btnVerMapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerMapaActionPerformed
+        // TODO add your handling code here:
+        t1.start();
+    }//GEN-LAST:event_btnVerMapaActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        String[] opciones = {"Si", "No"};
+        int ax = JOptionPane.showOptionDialog(null, "¿Está seguro?", "Eliminar", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE, null, opciones, null);
+        if (ax == JOptionPane.YES_OPTION) {
+            c.eliminar(c.buscar(cliente));
+            Contenedor.removeAll();
+            Contenedor.add(PanelMR);
+            Contenedor.repaint();
+            Contenedor.revalidate();
+
+        } else if (ax == JOptionPane.NO_OPTION) {
+
+        }
+
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        cliente = new ClienteDTO(tfNombre.getText(), tfTelefono.getText(), tfDireccion.getText());
+        c.crear(cliente);
+        btnRegistrarCliente.setEnabled(true);
+        btnVerMapa.setEnabled(true);
+        btnActualizar.setEnabled(true);
+        btnEliminar.setEnabled(true);
+
+        tfNombre.setEnabled(false);
+        tfDireccion.setEnabled(false);
+        tfTelefono.setEnabled(false);
+
+        btnGuardar.hide();
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void tfTelefono2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfTelefono2KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfTelefono2KeyReleased
+
+    private void btnRegistrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarClienteActionPerformed
+        // TODO add your handling code here:
+//        PedidosPanel pp = new PedidosPanel(cliente);
+//
+//        PantallaPrincipal.panel1.removeAll();
+//        PantallaPrincipal.panel1.add(pp);
+//        PantallaPrincipal.panel1.revalidate();
+//
+//        PantallaPrincipal.panel1.resize(500, 500);
+//
+//        PantallaPrincipal.panel1.repaint();
+//        
+        Contenedor.removeAll();
+        Contenedor.add(PanelPedido);
+        Contenedor.repaint();
+        Contenedor.revalidate();
+
+    }//GEN-LAST:event_btnRegistrarClienteActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        // TODO add your handling code here:
+        if (tfNombre.isEnabled()) {
+            cliente.setNombre(tfNombre.getText());
+            cliente.setDireccion(tfDireccion.getText());
+            cliente.setTelefono(tfTelefono.getText());
+
+            c.actualizar(cliente);
+
+            tfNombre.setEnabled(false);
+            tfDireccion.setEnabled(false);
+            tfTelefono.setEnabled(false);
+        } else {
+            tfNombre.setEnabled(true);
+            tfDireccion.setEnabled(true);
+            tfTelefono.setEnabled(true);
+        }
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn1ActionPerformed
+
+    private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn8ActionPerformed
+
+    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn4ActionPerformed
+
+    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn3ActionPerformed
+
+    private void btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActionPerformed
+
+    private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn9ActionPerformed
+
+    private void btn10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn10ActionPerformed
+
+    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn2ActionPerformed
+
+    private void btn11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn11ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,12 +833,53 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Contenedor;
+    private javax.swing.JPanel Menu;
+    private javax.swing.JPanel PanelCliente;
+    private javax.swing.JPanel PanelMR;
+    private javax.swing.JPanel PanelPedido;
+    private javax.swing.JButton btn;
+    private javax.swing.JButton btn1;
+    private javax.swing.JButton btn10;
+    private javax.swing.JButton btn11;
+    private javax.swing.JButton btn2;
+    private javax.swing.JButton btn3;
+    private javax.swing.JButton btn4;
+    private javax.swing.JButton btn5;
+    private javax.swing.JButton btn6;
+    private javax.swing.JButton btn7;
+    private javax.swing.JButton btn8;
+    private javax.swing.JButton btn9;
+    private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnMenuRapido;
+    private javax.swing.JButton btnRegistrarCliente;
+    private javax.swing.JButton btnVerMapa;
+    private javax.swing.JButton btnVerificar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     public static javax.swing.JPanel panel1;
+    private javax.swing.JTextField tfDireccion;
+    private javax.swing.JTextField tfNombre;
+    private javax.swing.JTextField tfTelefono;
+    private javax.swing.JTextField tfTelefono2;
     // End of variables declaration//GEN-END:variables
 }

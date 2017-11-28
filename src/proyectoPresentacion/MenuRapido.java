@@ -95,7 +95,7 @@ public class MenuRapido extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
-        // TODO add your handling code here:
+//        // TODO add your handling code here:
         try {
 
             ClienteDTO cliente = PantallaPrincipal.c.buscar(new ClienteDTO(tfTelefono.getText()));

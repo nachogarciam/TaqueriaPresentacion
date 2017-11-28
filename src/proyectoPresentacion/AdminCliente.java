@@ -104,18 +104,23 @@ public class AdminCliente extends javax.swing.JPanel {
         btnRegistrarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/registrarOrden.png"))); // NOI18N
         btnRegistrarCliente.setBorderPainted(false);
         btnRegistrarCliente.setContentAreaFilled(false);
-        btnRegistrarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegistrarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnRegistrarCliente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnRegistrarCliente.setMaximumSize(new java.awt.Dimension(147, 50));
         btnRegistrarCliente.setMinimumSize(new java.awt.Dimension(147, 50));
         btnRegistrarCliente.setPreferredSize(new java.awt.Dimension(147, 50));
         btnRegistrarCliente.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/registrarOrden3.png"))); // NOI18N
         btnRegistrarCliente.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/registrarOrden2.png"))); // NOI18N
+        btnRegistrarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarClienteActionPerformed(evt);
+            }
+        });
 
         btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/actualizar.png"))); // NOI18N
         btnActualizar.setBorderPainted(false);
         btnActualizar.setContentAreaFilled(false);
-        btnActualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnActualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnActualizar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnActualizar.setMaximumSize(new java.awt.Dimension(147, 50));
         btnActualizar.setMinimumSize(new java.awt.Dimension(147, 50));
@@ -131,7 +136,7 @@ public class AdminCliente extends javax.swing.JPanel {
         btnVerMapa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/verMapa.png"))); // NOI18N
         btnVerMapa.setBorderPainted(false);
         btnVerMapa.setContentAreaFilled(false);
-        btnVerMapa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVerMapa.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnVerMapa.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnVerMapa.setMaximumSize(new java.awt.Dimension(147, 50));
         btnVerMapa.setMinimumSize(new java.awt.Dimension(147, 50));
@@ -147,7 +152,7 @@ public class AdminCliente extends javax.swing.JPanel {
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/eliminar.png"))); // NOI18N
         btnEliminar.setBorderPainted(false);
         btnEliminar.setContentAreaFilled(false);
-        btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnEliminar.setMaximumSize(new java.awt.Dimension(147, 50));
         btnEliminar.setMinimumSize(new java.awt.Dimension(147, 50));
@@ -163,7 +168,7 @@ public class AdminCliente extends javax.swing.JPanel {
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/guardar.png"))); // NOI18N
         btnGuardar.setBorderPainted(false);
         btnGuardar.setContentAreaFilled(false);
-        btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnGuardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnGuardar.setMaximumSize(new java.awt.Dimension(147, 50));
         btnGuardar.setMinimumSize(new java.awt.Dimension(147, 50));
@@ -202,7 +207,7 @@ public class AdminCliente extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnVerMapa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(40, Short.MAX_VALUE))))
+                        .addContainerGap(43, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -313,6 +318,20 @@ public class AdminCliente extends javax.swing.JPanel {
 
 
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnRegistrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarClienteActionPerformed
+        // TODO add your handling code here:
+        PedidosPanel pp = new PedidosPanel(cliente);
+
+        PantallaPrincipal.panel1.removeAll();
+        PantallaPrincipal.panel1.add(pp);
+        PantallaPrincipal.panel1.revalidate();
+       
+        PantallaPrincipal.panel1.resize(500,500);
+        
+         PantallaPrincipal.panel1.repaint();
+         
+    }//GEN-LAST:event_btnRegistrarClienteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
