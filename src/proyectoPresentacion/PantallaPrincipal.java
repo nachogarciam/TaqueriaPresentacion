@@ -12,6 +12,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Panel;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.logging.Level;
@@ -19,6 +20,7 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.table.DefaultTableModel;
 import validadores_147333.Validadores;
 
 /**
@@ -26,9 +28,9 @@ import validadores_147333.Validadores;
  * @author amaci
  */
 public class PantallaPrincipal extends javax.swing.JFrame {
-
+    
     Validadores validador = new Validadores();
-
+    
     static Control c = new Control();
     static String[] argss;
     Panel panel = new Panel();
@@ -40,12 +42,17 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     String notasTorito;
     String notasPapas;
     String notasQuesadillas;
-
+    
+    DefaultTableModel modelotabla;
+    DefaultTableModel modelotabla1;
+    String[] columna = new String[]{"Nombre", "Dirección", "Teléfono"};
+    String[] columna1 = new String[]{"ID", "Telefono", "Orden", "Fecha", "Entregado"};
+    
     Thread t1 = new Thread() {
         public void run() {
-
+            
             c.ConsultarUbicacion(PantallaPrincipal.argss, tfDireccion.getText());
-
+            
         }
     };
 
@@ -53,8 +60,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
      * Creates new form PantallaPrincipal
      */
     public PantallaPrincipal() {
-
+        modelotabla = new DefaultTableModel(null, columna);
+        modelotabla1 = new DefaultTableModel(null, columna1);
         initComponents();
+        setFilasCliente();
+        setFilasPedido();
         PanelMR.setVisible(false);
         this.revalidate();
     }
@@ -83,7 +93,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         panel1 = new javax.swing.JPanel();
         Contenedor = new javax.swing.JPanel();
         Menu = new javax.swing.JPanel();
-        btnMenuRapido = new javax.swing.JButton();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        TabCliente = new javax.swing.JPanel();
         PanelMR = new javax.swing.JPanel();
         tfTelefono = new javax.swing.JTextField();
         btnVerificar = new javax.swing.JButton();
@@ -163,11 +174,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jLabel30 = new javax.swing.JLabel();
         tfNombre1 = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        TabConsultar = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel12 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tablaCliente = new javax.swing.JTable();
+        jPanel13 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tablaCliente1 = new javax.swing.JTable();
 
         jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         jFrame1.setMinimumSize(new java.awt.Dimension(303, 343));
@@ -282,45 +296,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         Contenedor.setLayout(new java.awt.CardLayout());
 
-        btnMenuRapido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/menuRapido.png"))); // NOI18N
-        btnMenuRapido.setBorderPainted(false);
-        btnMenuRapido.setContentAreaFilled(false);
-        btnMenuRapido.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnMenuRapido.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnMenuRapido.setMaximumSize(new java.awt.Dimension(147, 50));
-        btnMenuRapido.setMinimumSize(new java.awt.Dimension(147, 50));
-        btnMenuRapido.setPreferredSize(new java.awt.Dimension(147, 50));
-        btnMenuRapido.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/menuRapido3.png"))); // NOI18N
-        btnMenuRapido.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/menuRapido2.png"))); // NOI18N
-        btnMenuRapido.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnMenuRapidoMouseEntered(evt);
-            }
-        });
-        btnMenuRapido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenuRapidoActionPerformed(evt);
-            }
-        });
+        Menu.setLayout(new java.awt.CardLayout());
 
-        javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
-        Menu.setLayout(MenuLayout);
-        MenuLayout.setHorizontalGroup(
-            MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(btnMenuRapido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(508, Short.MAX_VALUE))
-        );
-        MenuLayout.setVerticalGroup(
-            MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(btnMenuRapido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(358, Short.MAX_VALUE))
-        );
+        jTabbedPane2.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+        jTabbedPane2.setToolTipText("");
 
-        Contenedor.add(Menu, "card3");
+        TabCliente.setLayout(new java.awt.CardLayout());
 
         PanelMR.setMaximumSize(new java.awt.Dimension(412, 219));
         PanelMR.setMinimumSize(new java.awt.Dimension(412, 219));
@@ -355,30 +336,30 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         PanelMRLayout.setHorizontalGroup(
             PanelMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelMRLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addGroup(PanelMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelMRLayout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addGroup(PanelMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(PanelMRLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(tfTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelMRLayout.createSequentialGroup()
+                    .addGroup(PanelMRLayout.createSequentialGroup()
                         .addComponent(btnVerificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(59, 59, 59)))
-                .addContainerGap(371, Short.MAX_VALUE))
+                .addContainerGap(347, Short.MAX_VALUE))
         );
         PanelMRLayout.setVerticalGroup(
             PanelMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelMRLayout.createSequentialGroup()
-                .addGap(75, 75, 75)
+                .addGap(106, 106, 106)
                 .addGroup(PanelMRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addComponent(btnVerificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(338, Short.MAX_VALUE))
+                .addContainerGap(307, Short.MAX_VALUE))
         );
 
-        Contenedor.add(PanelMR, "card2");
+        TabCliente.add(PanelMR, "card2");
 
         btnVerMapa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/verMapa.png"))); // NOI18N
         btnVerMapa.setBorderPainted(false);
@@ -486,31 +467,26 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         PanelClienteLayout.setHorizontalGroup(
             PanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelClienteLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
                 .addGroup(PanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelClienteLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
+                        .addGap(6, 6, 6)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelClienteLayout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addComponent(jLabel2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(PanelClienteLayout.createSequentialGroup()
-                .addGroup(PanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(128, 128, 128)
+                        .addComponent(jLabel2))
                     .addGroup(PanelClienteLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(PanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelClienteLayout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(PanelClienteLayout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfTelefono2, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelClienteLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfTelefono2, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelClienteLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
                         .addGroup(PanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PanelClienteLayout.createSequentialGroup()
                                 .addGap(99, 99, 99)
@@ -523,12 +499,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                                 .addGroup(PanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnVerMapa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addGap(0, 338, Short.MAX_VALUE))
+                .addContainerGap(292, Short.MAX_VALUE))
         );
         PanelClienteLayout.setVerticalGroup(
             PanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelClienteLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(37, 37, 37)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addGroup(PanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -552,10 +528,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 .addGroup(PanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
 
-        Contenedor.add(PanelCliente, "card4");
+        TabCliente.add(PanelCliente, "card4");
 
         jButton1.setText("Continuar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -986,7 +962,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(PanelPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
+                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE))
                         .addGap(23, 23, 23))
                     .addGroup(PanelPedidoLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
@@ -1043,7 +1019,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         .addGap(147, 147, 147))))
         );
 
-        Contenedor.add(PanelPedido, "card5");
+        TabCliente.add(PanelPedido, "card5");
 
         tfPedido.setColumns(20);
         tfPedido.setRows(5);
@@ -1093,51 +1069,42 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         PanelPedido2Layout.setHorizontalGroup(
             PanelPedido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPedido2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(PanelPedido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPedido2Layout.createSequentialGroup()
-                        .addComponent(jLabel25)
-                        .addGap(135, 135, 135))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPedido2Layout.createSequentialGroup()
-                        .addComponent(jButton5)
-                        .addGap(125, 125, 125))))
+                .addContainerGap(486, Short.MAX_VALUE)
+                .addComponent(jButton5)
+                .addGap(125, 125, 125))
             .addGroup(PanelPedido2Layout.createSequentialGroup()
+                .addGap(141, 141, 141)
                 .addGroup(PanelPedido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelPedido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(PanelPedido2Layout.createSequentialGroup()
+                            .addComponent(jLabel30)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(PanelPedido2Layout.createSequentialGroup()
+                            .addComponent(jLabel27)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(tfTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(PanelPedido2Layout.createSequentialGroup()
+                            .addGroup(PanelPedido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel28)
+                                .addComponent(jLabel26))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(PanelPedido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tfDireccion1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(tfNombre1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(PanelPedido2Layout.createSequentialGroup()
+                            .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnVerMapa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(PanelPedido2Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(PanelPedido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel28)
-                            .addComponent(jLabel26))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PanelPedido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfNombre1)
-                            .addGroup(PanelPedido2Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(tfDireccion1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(PanelPedido2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(PanelPedido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPedido2Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(PanelPedido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPedido2Layout.createSequentialGroup()
-                                        .addComponent(jLabel30)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPedido2Layout.createSequentialGroup()
-                                        .addComponent(jLabel27)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tfTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPedido2Layout.createSequentialGroup()
-                                .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnVerMapa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap())
+                        .addGap(129, 129, 129)
+                        .addComponent(jLabel25)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelPedido2Layout.setVerticalGroup(
             PanelPedido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelPedido2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(49, 49, 49)
                 .addComponent(jLabel25)
                 .addGap(18, 18, 18)
                 .addGroup(PanelPedido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1147,7 +1114,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 .addGroup(PanelPedido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
                     .addComponent(tfDireccion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(14, 14, 14)
                 .addGroup(PanelPedido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel30)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1157,53 +1124,101 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                     .addComponent(tfTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(PanelPedido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnVerMapa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                    .addComponent(btnVerMapa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(58, 58, 58)
                 .addComponent(jButton5)
                 .addGap(26, 26, 26))
         );
 
-        Contenedor.add(PanelPedido2, "card6");
+        TabCliente.add(PanelPedido2, "card6");
+
+        jTabbedPane2.addTab("", new javax.swing.ImageIcon(getClass().getResource("/botones/menuRapido.png")), TabCliente); // NOI18N
+
+        jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+
+        tablaCliente.setModel(modelotabla);
+        jScrollPane3.setViewportView(tablaCliente);
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 493, Short.MAX_VALUE)
+            .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel12Layout.createSequentialGroup()
+                    .addGap(0, 20, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 21, Short.MAX_VALUE)))
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 402, Short.MAX_VALUE)
+            .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel12Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jTabbedPane1.addTab("Clientes", jPanel12);
+
+        tablaCliente1.setModel(modelotabla);
+        jScrollPane4.setViewportView(tablaCliente1);
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(11, Short.MAX_VALUE))
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Pedidos", jPanel13);
+
+        javax.swing.GroupLayout TabConsultarLayout = new javax.swing.GroupLayout(TabConsultar);
+        TabConsultar.setLayout(TabConsultarLayout);
+        TabConsultarLayout.setHorizontalGroup(
+            TabConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TabConsultarLayout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 138, Short.MAX_VALUE))
+        );
+        TabConsultarLayout.setVerticalGroup(
+            TabConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TabConsultarLayout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 157, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("Consultar", TabConsultar);
+
+        Menu.add(jTabbedPane2, "card2");
+
+        Contenedor.add(Menu, "card3");
 
         panel1.add(Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Clientes");
-
-        jMenuItem1.setText("Lista de clientes");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem1);
-
-        jMenuItem2.setText("Lista de pedidos");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem2);
-
-        jMenuBar1.add(jMenu2);
-
-        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE)
+            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1092, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 4, Short.MAX_VALUE))
+                .addGap(0, 96, Short.MAX_VALUE))
         );
 
         panel1.getAccessibleContext().setAccessibleName("");
@@ -1212,19 +1227,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-        TablaClientes tc = new TablaClientes();
-        tc.setSize(449, 349);
-        this.remove(panel1);
-        this.add(tc);
-        this.revalidate();
-        this.repaint();
-        this.resize(449, 349);
-        this.setLocationRelativeTo(null);
-
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void tfTelefonoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfTelefonoKeyReleased
         if (validador.validaEnteroMaxDigitos(10, tfTelefono.getText()) && validador.validaEntero(tfTelefono.getText())) {
@@ -1238,12 +1240,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
         // TODO add your handling code here:
         try {
-
+            
             cliente = PantallaPrincipal.c.buscar(new ClienteDTO(tfTelefono.getText()));
             if (cliente.getIdCliente() != null) {
-
-                Contenedor.removeAll();
-                Contenedor.add(PanelCliente);
+                
+                TabCliente.removeAll();
+                TabCliente.add(PanelCliente);
                 btnGuardar.hide();
                 // cliente = new ClienteDTO(cliente);
                 tfNombre.setText(cliente.getNombre());
@@ -1252,13 +1254,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 tfNombre.setEnabled(false);
                 tfDireccion.setEnabled(false);
                 tfTelefono2.setEnabled(false);
-                Contenedor.repaint();
-                Contenedor.revalidate();
-
+                TabCliente.repaint();
+                TabCliente.revalidate();
+                
             }
         } catch (Exception e) {
-            Contenedor.removeAll();
-            Contenedor.add(PanelCliente);
+            TabCliente.removeAll();
+            TabCliente.add(PanelCliente);
             tfTelefono.setText(tfTelefono.getText());
             btnRegistrarCliente.setEnabled(false);
             btnVerMapa.setEnabled(false);
@@ -1266,8 +1268,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             btnEliminar.setEnabled(false);
             tfTelefono2.setEnabled(false);
             tfTelefono2.setText(String.valueOf(tfTelefono.getText()));
-            Contenedor.repaint();
-            Contenedor.revalidate();
+            TabCliente.repaint();
+            TabCliente.revalidate();
         }
 
     }//GEN-LAST:event_btnVerificarActionPerformed
@@ -1286,9 +1288,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             Contenedor.add(PanelMR);
             Contenedor.repaint();
             Contenedor.revalidate();
-
+            
         } else if (ax == JOptionPane.NO_OPTION) {
-
+            
         }
 
     }//GEN-LAST:event_btnEliminarActionPerformed
@@ -1300,11 +1302,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         btnVerMapa.setEnabled(true);
         btnActualizar.setEnabled(true);
         btnEliminar.setEnabled(true);
-
+        
         tfNombre.setEnabled(false);
         tfDireccion.setEnabled(false);
         tfTelefono.setEnabled(false);
-
+        
         btnGuardar.hide();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -1326,10 +1328,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 //        
         Contenedor.removeAll();
         Contenedor.add(PanelPedido);
-
+        
         Contenedor.repaint();
         Contenedor.revalidate();
-
+        
         this.resize(PanelPedido.getSize());
         Contenedor.resize(PanelPedido.getSize());
         panel1.resize(PanelPedido.getSize());
@@ -1342,9 +1344,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             cliente.setNombre(tfNombre.getText());
             cliente.setDireccion(tfDireccion.getText());
             cliente.setTelefono(tfTelefono.getText());
-
+            
             c.actualizar(cliente);
-
+            
             tfNombre.setEnabled(false);
             tfDireccion.setEnabled(false);
             tfTelefono.setEnabled(false);
@@ -1364,33 +1366,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void btnMenuRapidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuRapidoActionPerformed
-        // TODO add your handling code here:
-        //        MenuRapido mr = new MenuRapido();
-        //
-        //        panel1.removeAll();
-        //
-        //        panel1.add(mr);
-        //        panel1.revalidate();
-        //        panel1.repaint();
-        //        // this.resize(391, 400);
-        //        this.setLocationRelativeTo(null);
-
-        Contenedor.removeAll();
-        Contenedor.add(PanelMR);
-        this.resize(412, 274);
-        Contenedor.resize(412, 274);
-        panel1.resize(412, 274);
-
-        Contenedor.repaint();
-        Contenedor.revalidate();
-        this.setLocationRelativeTo(null);
-    }//GEN-LAST:event_btnMenuRapidoActionPerformed
-
-    private void btnMenuRapidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMenuRapidoMouseEntered
-
-    }//GEN-LAST:event_btnMenuRapidoMouseEntered
 
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
         // TODO add your handling code here:
@@ -1431,15 +1406,15 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jFrame1.resize(303, 393);
         jFrame1.setLocationRelativeTo(null);
         jTextField1.setText(String.valueOf(PantallaPrincipal.jSpinner1.getValue()));
-
+        
         this.disable();
     }//GEN-LAST:event_btnActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Date d=new Date(2017,10,10);
+        Date d = new Date(2017, 10, 10);
         pedido = new PedidoDTO("", cliente, d, cliente.getTelefono());
-
+        
         if (!jSpinner1.getValue().equals(0)) {
             pedido.setTacosH((int) jSpinner1.getValue());
         }
@@ -1477,7 +1452,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             pedido.setPostres((int) jSpinner9.getValue());
         }
         pedido.armarPedido();
-
+        
         Contenedor.removeAll();
         Contenedor.add(PanelPedido2);
         this.resize(320, 490);
@@ -1486,12 +1461,16 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         Contenedor.repaint();
         Contenedor.revalidate();
         this.setLocationRelativeTo(null);
-
+        
         tfNombre1.setText(cliente.getNombre());
         tfDireccion1.setText(cliente.getDireccion());
         tfPedido.setText(pedido.getOrden());
         tfTotal.setText(String.valueOf(pedido.getTotal()));
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void tfDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDireccionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfDireccionActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
@@ -1504,23 +1483,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         Contenedor.repaint();
         Contenedor.revalidate();
         this.setLocationRelativeTo(null);
+        
+
     }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-        TablaPedidos tp = new TablaPedidos();
-        tp.setSize(449, 349);
-        this.remove(panel1);
-        this.add(tp);
-        this.revalidate();
-        this.repaint();
-        this.resize(449, 349);
-        this.setLocationRelativeTo(null);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void tfDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDireccionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfDireccionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1557,6 +1522,35 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void setFilasCliente() {
+        ArrayList<ClienteDTO> lista = new ArrayList<ClienteDTO>();
+        lista.addAll(PantallaPrincipal.c.listarClientes());
+        System.out.println(lista.get(0));
+        Object datos[] = new Object[3];
+        for (int i = 0; i < lista.size(); i++) {
+            datos[0] = lista.get(i).getNombre();
+            datos[1] = lista.get(i).getDireccion();
+            datos[2] = lista.get(i).getTelefono();
+            modelotabla.addRow(datos);
+        }
+    }
+    
+    public void setFilasPedido() {
+        ArrayList<PedidoDTO> lista = new ArrayList<PedidoDTO>();
+        lista.addAll(PantallaPrincipal.c.listarPedidos());
+        System.out.println(lista.get(0));
+        Object datos[] = new Object[5];
+        for (int i = 0; i < lista.size(); i++) {
+            datos[0] = lista.get(i).id;
+            datos[1] = lista.get(i).getCliente().getTelefono();
+            datos[2] = lista.get(i).getOrden();
+            datos[3] = lista.get(i).getFecha();
+            datos[4] = lista.get(i).isEntregado();
+            
+            modelotabla1.addRow(datos);
+        }
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1566,6 +1560,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel PanelMR;
     private javax.swing.JPanel PanelPedido;
     private javax.swing.JPanel PanelPedido2;
+    private javax.swing.JPanel TabCliente;
+    private javax.swing.JPanel TabConsultar;
     private javax.swing.JButton btn;
     private javax.swing.JButton btn1;
     private javax.swing.JButton btn10;
@@ -1578,7 +1574,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnMenuRapido;
     private javax.swing.JButton btnRegistrarCliente;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JButton btnVerMapa;
@@ -1619,13 +1614,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1636,6 +1628,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     public static javax.swing.JSpinner jSpinner1;
     public static javax.swing.JSpinner jSpinner10;
     private javax.swing.JSpinner jSpinner11;
@@ -1648,10 +1642,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinner7;
     private javax.swing.JSpinner jSpinner8;
     private javax.swing.JSpinner jSpinner9;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     public static javax.swing.JPanel panel1;
+    private javax.swing.JTable tablaCliente;
+    private javax.swing.JTable tablaCliente1;
     private javax.swing.JTextField tfDireccion;
     private javax.swing.JTextField tfDireccion1;
     private javax.swing.JTextField tfNombre;
