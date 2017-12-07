@@ -273,7 +273,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(390, 430));
         setMinimumSize(new java.awt.Dimension(390, 430));
-        setPreferredSize(new java.awt.Dimension(638, 430));
 
         panel1.setMaximumSize(new java.awt.Dimension(390, 430));
         panel1.setMinimumSize(new java.awt.Dimension(390, 430));
@@ -438,6 +437,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         jLabel5.setText("Teléfono:");
 
+        tfDireccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfDireccionActionPerformed(evt);
+            }
+        });
+
         tfTelefono2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tfTelefono2KeyReleased(evt);
@@ -598,10 +603,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(13, 13, 13)
                         .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSpinner10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -987,8 +990,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         .addGap(23, 23, 23))
                     .addGroup(PanelPedidoLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(PanelPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelPedidoLayout.createSequentialGroup()
                         .addGap(42, 42, 42)
@@ -1247,7 +1249,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 tfNombre.setText(cliente.getNombre());
                 tfDireccion.setText(cliente.getDireccion());
                 tfTelefono2.setText(String.valueOf(cliente.getTelefono()));
-
                 tfNombre.setEnabled(false);
                 tfDireccion.setEnabled(false);
                 tfTelefono2.setEnabled(false);
@@ -1264,6 +1265,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             btnActualizar.setEnabled(false);
             btnEliminar.setEnabled(false);
             tfTelefono2.setEnabled(false);
+            tfTelefono2.setText(String.valueOf(tfTelefono.getText()));
             Contenedor.repaint();
             Contenedor.revalidate();
         }
@@ -1516,6 +1518,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void tfDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDireccionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfDireccionActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1631,7 +1637,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     public static javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner10;
+    public static javax.swing.JSpinner jSpinner10;
     private javax.swing.JSpinner jSpinner11;
     private javax.swing.JSpinner jSpinner12;
     private javax.swing.JSpinner jSpinner2;
