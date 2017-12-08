@@ -165,16 +165,17 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         tfDireccion1 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         tfPedido = new javax.swing.JTextArea();
+        tfNombre1 = new javax.swing.JTextField();
+        jLabel37 = new javax.swing.JLabel();
         btnRegresar = new javax.swing.JButton();
-        jLabel25 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
         btnVerMapa1 = new javax.swing.JButton();
-        jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         tfTotal = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
-        tfNombre1 = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
         TabConsultar = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel12 = new javax.swing.JPanel();
@@ -739,9 +740,27 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         TabCliente.add(PanelPedido, "card5");
 
+        PanelPedido2.setLayout(null);
+
+        tfDireccion1.setBorder(null);
+        PanelPedido2.add(tfDireccion1);
+        tfDireccion1.setBounds(290, 205, 330, 14);
+
         tfPedido.setColumns(20);
         tfPedido.setRows(5);
         jScrollPane2.setViewportView(tfPedido);
+
+        PanelPedido2.add(jScrollPane2);
+        jScrollPane2.setBounds(390, 250, 242, 113);
+
+        tfNombre1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tfNombre1.setBorder(null);
+        PanelPedido2.add(tfNombre1);
+        tfNombre1.setBounds(290, 165, 330, 20);
+
+        jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ddpedido.png"))); // NOI18N
+        PanelPedido2.add(jLabel37);
+        jLabel37.setBounds(220, 30, 369, 46);
 
         btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/regresar.png"))); // NOI18N
         btnRegresar.setBorderPainted(false);
@@ -753,8 +772,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         btnRegresar.setPreferredSize(new java.awt.Dimension(147, 50));
         btnRegresar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/regresar3.png"))); // NOI18N
         btnRegresar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/regresar2.png"))); // NOI18N
+        PanelPedido2.add(btnRegresar);
+        btnRegresar.setBounds(141, 450, 147, 50);
 
-        jLabel25.setText("Datos del pedido");
+        jLabel38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nombre.png"))); // NOI18N
+        PanelPedido2.add(jLabel38);
+        jLabel38.setBounds(200, 160, 425, 29);
 
         btnVerMapa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/verMapa.png"))); // NOI18N
         btnVerMapa1.setBorderPainted(false);
@@ -766,14 +789,22 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         btnVerMapa1.setPreferredSize(new java.awt.Dimension(147, 50));
         btnVerMapa1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/verMapa3.png"))); // NOI18N
         btnVerMapa1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/verMapa2.png"))); // NOI18N
-
-        jLabel26.setText("Nombre:");
+        PanelPedido2.add(btnVerMapa1);
+        btnVerMapa1.setBounds(306, 450, 147, 50);
 
         jLabel27.setText("Total:");
+        PanelPedido2.add(jLabel27);
+        jLabel27.setBounds(308, 415, 28, 14);
 
-        jLabel28.setText("Dirección:");
+        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/direccion.png"))); // NOI18N
+        PanelPedido2.add(jLabel28);
+        jLabel28.setBounds(200, 200, 425, 29);
+        PanelPedido2.add(tfTotal);
+        tfTotal.setBounds(340, 412, 113, 20);
 
         jLabel30.setText("Pedido:");
+        PanelPedido2.add(jLabel30);
+        jLabel30.setBounds(340, 260, 36, 14);
 
         jButton5.setText("Confirmar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -781,73 +812,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
+        PanelPedido2.add(jButton5);
+        jButton5.setBounds(603, 558, 79, 23);
 
-        javax.swing.GroupLayout PanelPedido2Layout = new javax.swing.GroupLayout(PanelPedido2);
-        PanelPedido2.setLayout(PanelPedido2Layout);
-        PanelPedido2Layout.setHorizontalGroup(
-            PanelPedido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPedido2Layout.createSequentialGroup()
-                .addContainerGap(603, Short.MAX_VALUE)
-                .addComponent(jButton5)
-                .addGap(125, 125, 125))
-            .addGroup(PanelPedido2Layout.createSequentialGroup()
-                .addGap(141, 141, 141)
-                .addGroup(PanelPedido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelPedido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(PanelPedido2Layout.createSequentialGroup()
-                            .addComponent(jLabel30)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(PanelPedido2Layout.createSequentialGroup()
-                            .addComponent(jLabel27)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(tfTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(PanelPedido2Layout.createSequentialGroup()
-                            .addGroup(PanelPedido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel28)
-                                .addComponent(jLabel26))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(PanelPedido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(tfDireccion1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(tfNombre1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(PanelPedido2Layout.createSequentialGroup()
-                            .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(btnVerMapa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(PanelPedido2Layout.createSequentialGroup()
-                        .addGap(129, 129, 129)
-                        .addComponent(jLabel25)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        PanelPedido2Layout.setVerticalGroup(
-            PanelPedido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelPedido2Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jLabel25)
-                .addGap(18, 18, 18)
-                .addGroup(PanelPedido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel26)
-                    .addComponent(tfNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(PanelPedido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel28)
-                    .addComponent(tfDireccion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addGroup(PanelPedido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel30)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(PanelPedido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel27)
-                    .addComponent(tfTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(PanelPedido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnVerMapa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(58, 58, 58)
-                .addComponent(jButton5)
-                .addGap(26, 26, 26))
-        );
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo.png"))); // NOI18N
+        PanelPedido2.add(jLabel14);
+        jLabel14.setBounds(0, 0, 815, 617);
 
         TabCliente.add(PanelPedido2, "card6");
 
@@ -1335,6 +1305,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -1346,8 +1317,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
@@ -1359,6 +1328,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
