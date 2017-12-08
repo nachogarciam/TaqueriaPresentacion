@@ -169,12 +169,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jLabel37 = new javax.swing.JLabel();
         btnRegresar = new javax.swing.JButton();
         jLabel38 = new javax.swing.JLabel();
-        btnVerMapa1 = new javax.swing.JButton();
+        tfTotal = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        tfTotal = new javax.swing.JTextField();
-        jLabel30 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        btnConfirmar = new javax.swing.JButton();
+        jLabel25 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         TabConsultar = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -517,21 +516,21 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jSpinner10.setName(""); // NOI18N
         jSpinner10.setOpaque(false);
         jPanel2.add(jSpinner10);
-        jSpinner10.setBounds(120, 30, 29, 20);
+        jSpinner10.setBounds(118, 18, 40, 30);
 
         jLabel20.setText("M");
         jPanel2.add(jLabel20);
-        jLabel20.setBounds(130, 10, 18, 14);
+        jLabel20.setBounds(130, 2, 18, 14);
 
         jLabel19.setText("H");
         jPanel2.add(jLabel19);
-        jLabel19.setBounds(95, 10, 18, 14);
+        jLabel19.setBounds(88, 2, 18, 14);
 
         jSpinner1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jSpinner1.setName(""); // NOI18N
         jSpinner1.setOpaque(false);
         jPanel2.add(jSpinner1);
-        jSpinner1.setBounds(85, 30, 29, 20);
+        jSpinner1.setBounds(75, 18, 40, 30);
 
         btn.setText("Notas");
         btn.addActionListener(new java.awt.event.ActionListener() {
@@ -540,7 +539,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btn);
-        btn.setBounds(85, 55, 61, 23);
+        btn.setBounds(85, 50, 61, 23);
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tacos.png"))); // NOI18N
         jPanel2.add(jLabel10);
@@ -563,7 +562,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jPanel3.add(btn1);
         btn1.setBounds(85, 50, 61, 23);
         jPanel3.add(jSpinner2);
-        jSpinner2.setBounds(95, 25, 40, 20);
+        jSpinner2.setBounds(95, 15, 40, 30);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lorenza.png"))); // NOI18N
         jPanel3.add(jLabel2);
@@ -585,7 +584,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jPanel4.add(btn2);
         btn2.setBounds(85, 50, 61, 23);
         jPanel4.add(jSpinner3);
-        jSpinner3.setBounds(95, 25, 40, 20);
+        jSpinner3.setBounds(95, 15, 40, 30);
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/torito.png"))); // NOI18N
         jPanel4.add(jLabel13);
@@ -600,11 +599,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         jLabel22.setText(" S/C");
         jPanel5.add(jLabel22);
-        jLabel22.setBounds(125, 10, 20, 14);
+        jLabel22.setBounds(125, 2, 20, 14);
         jPanel5.add(jSpinner11);
-        jSpinner11.setBounds(120, 30, 29, 20);
+        jSpinner11.setBounds(118, 18, 40, 30);
         jPanel5.add(jSpinner4);
-        jSpinner4.setBounds(85, 30, 29, 20);
+        jSpinner4.setBounds(75, 18, 40, 30);
 
         btn3.setText("Notas");
         btn3.addActionListener(new java.awt.event.ActionListener() {
@@ -613,11 +612,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
         jPanel5.add(btn3);
-        btn3.setBounds(85, 55, 61, 23);
+        btn3.setBounds(85, 50, 61, 23);
 
         jLabel21.setText("C");
         jPanel5.add(jLabel21);
-        jLabel21.setBounds(95, 10, 21, 14);
+        jLabel21.setBounds(88, 2, 21, 14);
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/papa.png"))); // NOI18N
         jPanel5.add(jLabel11);
@@ -637,19 +636,19 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
         jPanel6.add(btn4);
-        btn4.setBounds(85, 55, 61, 23);
+        btn4.setBounds(85, 50, 61, 23);
         jPanel6.add(jSpinner5);
-        jSpinner5.setBounds(85, 30, 30, 20);
+        jSpinner5.setBounds(75, 18, 40, 30);
         jPanel6.add(jSpinner12);
-        jSpinner12.setBounds(120, 30, 30, 20);
+        jSpinner12.setBounds(118, 18, 40, 30);
 
         jLabel24.setText("CH");
         jPanel6.add(jLabel24);
-        jLabel24.setBounds(125, 10, 22, 14);
+        jLabel24.setBounds(125, 2, 22, 14);
 
         jLabel23.setText("G");
         jPanel6.add(jLabel23);
-        jLabel23.setBounds(95, 10, 16, 14);
+        jLabel23.setBounds(88, 2, 16, 14);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quesadilla.png"))); // NOI18N
         jPanel6.add(jLabel8);
@@ -671,7 +670,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jPanel7.add(btn10);
         btn10.setBounds(85, 50, 61, 23);
         jPanel7.add(jSpinner6);
-        jSpinner6.setBounds(95, 25, 40, 20);
+        jSpinner6.setBounds(95, 15, 40, 30);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/gordita.png"))); // NOI18N
         jPanel7.add(jLabel6);
@@ -691,19 +690,19 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
         jPanel8.add(btn8);
-        btn8.setBounds(85, 55, 61, 23);
+        btn8.setBounds(85, 50, 61, 23);
 
         jLabel7.setText("Litro");
         jPanel8.add(jLabel7);
-        jLabel7.setBounds(122, 10, 21, 14);
+        jLabel7.setBounds(120, 0, 21, 14);
         jPanel8.add(jSpinner8);
-        jSpinner8.setBounds(120, 30, 29, 20);
+        jSpinner8.setBounds(118, 18, 40, 30);
         jPanel8.add(jSpinner7);
-        jSpinner7.setBounds(85, 30, 29, 20);
+        jSpinner7.setBounds(75, 18, 40, 30);
 
         jLabel36.setText("Vaso");
         jPanel8.add(jLabel36);
-        jLabel36.setBounds(88, 10, 30, 14);
+        jLabel36.setBounds(80, 2, 30, 14);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bebidas.png"))); // NOI18N
         jPanel8.add(jLabel9);
@@ -716,7 +715,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jPanel10.setPreferredSize(new java.awt.Dimension(167, 83));
         jPanel10.setLayout(null);
         jPanel10.add(jSpinner9);
-        jSpinner9.setBounds(90, 20, 38, 20);
+        jSpinner9.setBounds(90, 10, 38, 30);
 
         btn9.setText("Notas");
         btn9.addActionListener(new java.awt.event.ActionListener() {
@@ -742,16 +741,21 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         PanelPedido2.setLayout(null);
 
+        tfDireccion1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tfDireccion1.setBorder(null);
         PanelPedido2.add(tfDireccion1);
-        tfDireccion1.setBounds(290, 205, 330, 14);
+        tfDireccion1.setBounds(290, 205, 330, 20);
+
+        jScrollPane2.setBorder(null);
 
         tfPedido.setColumns(20);
+        tfPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tfPedido.setRows(5);
+        tfPedido.setBorder(null);
         jScrollPane2.setViewportView(tfPedido);
 
         PanelPedido2.add(jScrollPane2);
-        jScrollPane2.setBounds(390, 250, 242, 113);
+        jScrollPane2.setBounds(201, 270, 420, 120);
 
         tfNombre1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tfNombre1.setBorder(null);
@@ -773,47 +777,37 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         btnRegresar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/regresar3.png"))); // NOI18N
         btnRegresar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/regresar2.png"))); // NOI18N
         PanelPedido2.add(btnRegresar);
-        btnRegresar.setBounds(141, 450, 147, 50);
+        btnRegresar.setBounds(200, 445, 147, 50);
 
         jLabel38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nombre.png"))); // NOI18N
         PanelPedido2.add(jLabel38);
         jLabel38.setBounds(200, 160, 425, 29);
 
-        btnVerMapa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/verMapa.png"))); // NOI18N
-        btnVerMapa1.setBorderPainted(false);
-        btnVerMapa1.setContentAreaFilled(false);
-        btnVerMapa1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnVerMapa1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnVerMapa1.setMaximumSize(new java.awt.Dimension(147, 50));
-        btnVerMapa1.setMinimumSize(new java.awt.Dimension(147, 50));
-        btnVerMapa1.setPreferredSize(new java.awt.Dimension(147, 50));
-        btnVerMapa1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/verMapa3.png"))); // NOI18N
-        btnVerMapa1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/verMapa2.png"))); // NOI18N
-        PanelPedido2.add(btnVerMapa1);
-        btnVerMapa1.setBounds(306, 450, 147, 50);
+        tfTotal.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tfTotal.setBorder(null);
+        PanelPedido2.add(tfTotal);
+        tfTotal.setBounds(530, 405, 90, 20);
 
-        jLabel27.setText("Total:");
+        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/total.png"))); // NOI18N
         PanelPedido2.add(jLabel27);
-        jLabel27.setBounds(308, 415, 28, 14);
+        jLabel27.setBounds(447, 400, 178, 29);
 
         jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/direccion.png"))); // NOI18N
         PanelPedido2.add(jLabel28);
         jLabel28.setBounds(200, 200, 425, 29);
-        PanelPedido2.add(tfTotal);
-        tfTotal.setBounds(340, 412, 113, 20);
 
-        jLabel30.setText("Pedido:");
-        PanelPedido2.add(jLabel30);
-        jLabel30.setBounds(340, 260, 36, 14);
-
-        jButton5.setText("Confirmar");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnConfirmar.setText("Confirmar");
+        btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnConfirmarActionPerformed(evt);
             }
         });
-        PanelPedido2.add(jButton5);
-        jButton5.setBounds(603, 558, 79, 23);
+        PanelPedido2.add(btnConfirmar);
+        btnConfirmar.setBounds(540, 450, 79, 23);
+
+        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pedido.png"))); // NOI18N
+        PanelPedido2.add(jLabel25);
+        jLabel25.setBounds(200, 240, 425, 156);
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo.png"))); // NOI18N
         PanelPedido2.add(jLabel14);
@@ -1181,7 +1175,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfDireccionActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
         // TODO add your handling code here:
         c.crear(pedido);
         Contenedor.removeAll();
@@ -1194,7 +1188,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
 
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btnConfirmarActionPerformed
 
     private void tfTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTelefonoActionPerformed
         // TODO add your handling code here:
@@ -1282,12 +1276,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btn8;
     private javax.swing.JButton btn9;
     private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnConfirmar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnRegistrarCliente;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JButton btnVerMapa;
-    private javax.swing.JButton btnVerMapa1;
     private javax.swing.JButton btnVerificar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -1295,7 +1289,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
@@ -1317,11 +1310,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
