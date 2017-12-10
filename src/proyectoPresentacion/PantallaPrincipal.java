@@ -224,6 +224,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         tablaCliente = new javax.swing.JTable();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
+        jLabel42 = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tablaPedido = new javax.swing.JTable();
@@ -232,13 +233,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         btnEliminar1 = new javax.swing.JButton();
         btnEditar1 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
-        tfFecha = new com.toedter.calendar.JDateChooser();
         lbFecha = new javax.swing.JLabel();
-        tfDesde = new com.toedter.calendar.JDateChooser();
         lbDesde = new javax.swing.JLabel();
         lbHasta = new javax.swing.JLabel();
-        tfHasta = new com.toedter.calendar.JDateChooser();
         btnDia = new javax.swing.JButton();
+        tfDesde = new com.toedter.calendar.JDateChooser();
+        tfHasta = new com.toedter.calendar.JDateChooser();
+        tfFecha = new com.toedter.calendar.JDateChooser();
+        jLabel43 = new javax.swing.JLabel();
 
         jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         jFrame1.setMinimumSize(new java.awt.Dimension(303, 343));
@@ -341,9 +343,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        EditarCliente.setMaximumSize(new java.awt.Dimension(480, 567));
         EditarCliente.setMinimumSize(new java.awt.Dimension(480, 567));
-        EditarCliente.setPreferredSize(new java.awt.Dimension(480, 567));
         EditarCliente.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PanelCliente1.setPreferredSize(new java.awt.Dimension(859, 617));
@@ -596,6 +596,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/regresar.png"))); // NOI18N
         jButton5.setBorderPainted(false);
         jButton5.setContentAreaFilled(false);
+        jButton5.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/regresar3.png"))); // NOI18N
+        jButton5.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/regresar2.png"))); // NOI18N
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -651,18 +653,31 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         PanelPedido.setBackground(new java.awt.Color(255, 255, 255));
         PanelPedido.setLayout(null);
 
-        jButton1.setText("Continuar");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/continuar.png"))); // NOI18N
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/continuar3.png"))); // NOI18N
+        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/continuar2.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         PanelPedido.add(jButton1);
-        jButton1.setBounds(550, 410, 79, 23);
+        jButton1.setBounds(610, 540, 150, 50);
 
-        jButton2.setText("Cancelar");
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancelar.png"))); // NOI18N
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancelar3.png"))); // NOI18N
+        jButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancelar2.png"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         PanelPedido.add(jButton2);
-        jButton2.setBounds(180, 400, 75, 23);
+        jButton2.setBounds(40, 540, 150, 50);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
@@ -951,14 +966,18 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         PanelPedido2.add(jLabel28);
         jLabel28.setBounds(200, 200, 425, 29);
 
-        btnConfirmar.setText("Confirmar");
+        btnConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/confirmar.png"))); // NOI18N
+        btnConfirmar.setBorderPainted(false);
+        btnConfirmar.setContentAreaFilled(false);
+        btnConfirmar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/confirmar3.png"))); // NOI18N
+        btnConfirmar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/confirmar2.png"))); // NOI18N
         btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmarActionPerformed(evt);
             }
         });
         PanelPedido2.add(btnConfirmar);
-        btnConfirmar.setBounds(540, 450, 79, 23);
+        btnConfirmar.setBounds(470, 445, 150, 50);
 
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pedido.png"))); // NOI18N
         PanelPedido2.add(jLabel25);
@@ -974,48 +993,43 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.LEFT);
 
+        jPanel12.setLayout(null);
+
         tablaCliente.setModel(modelotabla);
         jScrollPane3.setViewportView(tablaCliente);
 
-        jButton10.setText("Eliminar");
+        jPanel12.add(jScrollPane3);
+        jScrollPane3.setBounds(70, 110, 408, 96);
+
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminar.png"))); // NOI18N
+        jButton10.setBorderPainted(false);
+        jButton10.setContentAreaFilled(false);
+        jButton10.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminar3.png"))); // NOI18N
+        jButton10.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminar2.png"))); // NOI18N
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
             }
         });
+        jPanel12.add(jButton10);
+        jButton10.setBounds(72, 210, 150, 50);
 
-        jButton11.setText("Editar");
+        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png"))); // NOI18N
+        jButton11.setBorderPainted(false);
+        jButton11.setContentAreaFilled(false);
+        jButton11.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar3.png"))); // NOI18N
+        jButton11.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar2.png"))); // NOI18N
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton11ActionPerformed(evt);
             }
         });
+        jPanel12.add(jButton11);
+        jButton11.setBounds(330, 210, 150, 50);
 
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addComponent(jButton10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton11))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGap(96, 96, 96)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton10)
-                    .addComponent(jButton11))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel42.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo.png"))); // NOI18N
+        jPanel12.add(jLabel42);
+        jLabel42.setBounds(0, 0, 815, 617);
 
         jTabbedPane1.addTab("Clientes", jPanel12);
 
@@ -1026,32 +1040,46 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         jPanel13.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 157, 580, 128));
 
+        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(98, 224, 215));
         jLabel29.setText("Estado:");
-        jPanel13.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, 30));
+        jPanel13.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 80, -1, 30));
 
-        btnPeriodo.setText("Periodo");
+        btnPeriodo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/periodo.png"))); // NOI18N
+        btnPeriodo.setBorderPainted(false);
+        btnPeriodo.setContentAreaFilled(false);
+        btnPeriodo.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/periodo3.png"))); // NOI18N
+        btnPeriodo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/periodo2.png"))); // NOI18N
         btnPeriodo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPeriodoActionPerformed(evt);
             }
         });
-        jPanel13.add(btnPeriodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 110, -1, 30));
+        jPanel13.add(btnPeriodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 150, 50));
 
-        btnEliminar1.setText("Eliminar");
+        btnEliminar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminar.png"))); // NOI18N
+        btnEliminar1.setBorderPainted(false);
+        btnEliminar1.setContentAreaFilled(false);
+        btnEliminar1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminar3.png"))); // NOI18N
+        btnEliminar1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminar2.png"))); // NOI18N
         btnEliminar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminar1ActionPerformed(evt);
             }
         });
-        jPanel13.add(btnEliminar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 303, -1, -1));
+        jPanel13.add(btnEliminar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 150, 50));
 
-        btnEditar1.setText("Editar");
+        btnEditar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png"))); // NOI18N
+        btnEditar1.setBorderPainted(false);
+        btnEditar1.setContentAreaFilled(false);
+        btnEditar1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar3.png"))); // NOI18N
+        btnEditar1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar2.png"))); // NOI18N
         btnEditar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditar1ActionPerformed(evt);
             }
         });
-        jPanel13.add(btnEditar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(462, 303, -1, -1));
+        jPanel13.add(btnEditar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 290, 150, 50));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Entregado", "No entregado" }));
         jComboBox1.addItemListener(new java.awt.event.ItemListener() {
@@ -1059,61 +1087,51 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 jComboBox1ItemStateChanged(evt);
             }
         });
-        jPanel13.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, -1, 30));
-
-        tfFecha.setMinimumSize(new java.awt.Dimension(119, 20));
-        tfFecha.setPreferredSize(new java.awt.Dimension(119, 20));
-        tfFecha.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tfFechaMouseClicked(evt);
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
             }
         });
-        tfFecha.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                tfFechaInputMethodTextChanged(evt);
-            }
-        });
-        jPanel13.add(tfFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 119, 30));
+        jPanel13.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, 30));
 
+        lbFecha.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbFecha.setForeground(new java.awt.Color(98, 224, 215));
         lbFecha.setText("Fecha:");
         jPanel13.add(lbFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, -1, 30));
 
-        tfDesde.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                tfDesdeInputMethodTextChanged(evt);
-            }
-        });
-        jPanel13.add(tfDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 119, 30));
-
+        lbDesde.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbDesde.setForeground(new java.awt.Color(98, 224, 215));
         lbDesde.setText("Desde:");
         jPanel13.add(lbDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, -1, 30));
 
+        lbHasta.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbHasta.setForeground(new java.awt.Color(98, 224, 215));
         lbHasta.setText("Hasta:");
         jPanel13.add(lbHasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, -1, 30));
 
-        tfHasta.setMinSelectableDate(new java.util.Date(-62135740720000L));
-        tfHasta.setMinimumSize(new java.awt.Dimension(119, 20));
-        tfHasta.setPreferredSize(new java.awt.Dimension(119, 20));
-        tfHasta.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                tfHastaInputMethodTextChanged(evt);
-            }
-        });
-        jPanel13.add(tfHasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, 119, 30));
-
-        btnDia.setText("Día");
+        btnDia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dia.png"))); // NOI18N
+        btnDia.setBorderPainted(false);
+        btnDia.setContentAreaFilled(false);
+        btnDia.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dia3.png"))); // NOI18N
+        btnDia.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dia2.png"))); // NOI18N
         btnDia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDiaActionPerformed(evt);
             }
         });
-        jPanel13.add(btnDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 50, 30));
+        jPanel13.add(btnDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 150, 50));
+
+        tfDesde.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel13.add(tfDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 115, 120, -1));
+
+        tfHasta.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel13.add(tfHasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 115, 110, -1));
+
+        tfFecha.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel13.add(tfFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 115, 120, -1));
+
+        jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo.png"))); // NOI18N
+        jPanel13.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
 
         jTabbedPane1.addTab("Pedidos", jPanel13);
 
@@ -1138,7 +1156,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
+            .addComponent(jTabbedPane2)
         );
 
         pack();
@@ -1526,6 +1544,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         setFilasPedidoFiltros();
     }//GEN-LAST:event_tfFechaMouseClicked
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1756,6 +1782,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
