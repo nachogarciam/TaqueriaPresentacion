@@ -126,15 +126,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jFrame1 = new javax.swing.JFrame();
         jPanel1 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
         EditarCliente = new javax.swing.JFrame();
         PanelCliente1 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
@@ -148,6 +143,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         tfTelefono11 = new javax.swing.JTextField();
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         TabCliente = new javax.swing.JPanel();
         PanelMR = new javax.swing.JPanel();
@@ -262,101 +261,50 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jFrame1.setMinimumSize(new java.awt.Dimension(303, 343));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(303, 343));
+        jPanel1.setLayout(null);
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel15.setText("Tacos");
-
-        jLabel16.setText("Cantidad:");
-
-        jLabel17.setText("Cant. Maiz:");
-
-        jLabel18.setText("Nota:");
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/notas.png"))); // NOI18N
+        jPanel1.add(jLabel15);
+        jLabel15.setBounds(128, 28, 121, 34);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jButton3.setText("Aceptar");
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(35, 80, 308, 125);
+
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/confirmar.png"))); // NOI18N
+        jButton3.setBorderPainted(false);
+        jButton3.setContentAreaFilled(false);
+        jButton3.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/confirmar3.png"))); // NOI18N
+        jButton3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/confirmar2.png"))); // NOI18N
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton3);
+        jButton3.setBounds(192, 211, 151, 50);
 
-        jButton4.setText("Cancelar");
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton4))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel18)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel17))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(jLabel15)))
-                .addContainerGap(31, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel15)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17))
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel18)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
-                .addContainerGap(38, Short.MAX_VALUE))
-        );
-
-        jTextField1.setText(String.valueOf(PantallaPrincipal.jSpinner1.getValue()));
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancelar.png"))); // NOI18N
+        jButton4.setBorderPainted(false);
+        jButton4.setContentAreaFilled(false);
+        jButton4.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancelar3.png"))); // NOI18N
+        jButton4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancelar2.png"))); // NOI18N
+        jPanel1.add(jButton4);
+        jButton4.setBounds(35, 211, 151, 50);
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
         jFrame1Layout.setHorizontalGroup(
             jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jFrame1Layout.setVerticalGroup(
             jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
         );
 
         EditarCliente.setMinimumSize(new java.awt.Dimension(480, 567));
@@ -451,6 +399,16 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         PanelCliente1.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 490, 580));
 
         EditarCliente.getContentPane().add(PanelCliente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 607));
+
+        jLabel17.setText("Cant. Maiz:");
+
+        jLabel16.setText("Cantidad:");
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Taquería Zacanta");
@@ -1047,7 +1005,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jPanel12.add(jLabel42);
         jLabel42.setBounds(0, 0, 815, 617);
 
-        jTabbedPane1.addTab("Clientes", jPanel12);
+        jTabbedPane1.addTab("", new javax.swing.ImageIcon(getClass().getResource("/img/clientes2.png")), jPanel12); // NOI18N
 
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1164,7 +1122,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo.png"))); // NOI18N
         jPanel13.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
 
-        jTabbedPane1.addTab("Pedidos", jPanel13);
+        jTabbedPane1.addTab("", new javax.swing.ImageIcon(getClass().getResource("/img/pedidos.png")), jPanel13); // NOI18N
 
         javax.swing.GroupLayout TabConsultarLayout = new javax.swing.GroupLayout(TabConsultar);
         TabConsultar.setLayout(TabConsultarLayout);
@@ -1849,7 +1807,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
