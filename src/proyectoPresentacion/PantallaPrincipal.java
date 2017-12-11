@@ -260,6 +260,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         jFrame1.setMinimumSize(new java.awt.Dimension(303, 343));
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(303, 343));
         jPanel1.setLayout(null);
 
@@ -304,7 +305,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         );
         jFrame1Layout.setVerticalGroup(
             jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
         );
 
         EditarCliente.setMinimumSize(new java.awt.Dimension(480, 567));
@@ -1007,6 +1008,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("", new javax.swing.ImageIcon(getClass().getResource("/img/clientes2.png")), jPanel12); // NOI18N
 
+        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tablaPedido.setModel(modelotabla1);
