@@ -94,6 +94,22 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
             }
         });
+        tfDesde.getDateEditor().addPropertyChangeListener(
+                new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent e) {
+                setFilasPedidoPeriodo();
+
+            }
+        });
+        tfHasta.getDateEditor().addPropertyChangeListener(
+                new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent e) {
+                setFilasPedidoPeriodo();
+
+            }
+        });
         this.revalidate();
 
     }
@@ -237,9 +253,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         lbDesde = new javax.swing.JLabel();
         lbHasta = new javax.swing.JLabel();
         btnDia = new javax.swing.JButton();
+        tfFecha = new com.toedter.calendar.JDateChooser();
         tfDesde = new com.toedter.calendar.JDateChooser();
         tfHasta = new com.toedter.calendar.JDateChooser();
-        tfFecha = new com.toedter.calendar.JDateChooser();
         jLabel43 = new javax.swing.JLabel();
 
         jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1038,7 +1054,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         tablaPedido.setModel(modelotabla1);
         jScrollPane4.setViewportView(tablaPedido);
 
-        jPanel13.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 157, 580, 128));
+        jPanel13.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 157, 620, 200));
 
         jLabel29.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(98, 224, 215));
@@ -1055,7 +1071,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 btnPeriodoActionPerformed(evt);
             }
         });
-        jPanel13.add(btnPeriodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 150, 50));
+        jPanel13.add(btnPeriodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, 150, 50));
 
         btnEliminar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminar.png"))); // NOI18N
         btnEliminar1.setBorderPainted(false);
@@ -1067,7 +1083,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 btnEliminar1ActionPerformed(evt);
             }
         });
-        jPanel13.add(btnEliminar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 150, 50));
+        jPanel13.add(btnEliminar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 150, 50));
 
         btnEditar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png"))); // NOI18N
         btnEditar1.setBorderPainted(false);
@@ -1079,7 +1095,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 btnEditar1ActionPerformed(evt);
             }
         });
-        jPanel13.add(btnEditar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 290, 150, 50));
+        jPanel13.add(btnEditar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 370, 150, 50));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Entregado", "No entregado" }));
         jComboBox1.addItemListener(new java.awt.event.ItemListener() {
@@ -1097,17 +1113,17 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         lbFecha.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbFecha.setForeground(new java.awt.Color(98, 224, 215));
         lbFecha.setText("Fecha:");
-        jPanel13.add(lbFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, -1, 30));
+        jPanel13.add(lbFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, -1, 30));
 
         lbDesde.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbDesde.setForeground(new java.awt.Color(98, 224, 215));
         lbDesde.setText("Desde:");
-        jPanel13.add(lbDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, -1, 30));
+        jPanel13.add(lbDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, -1, 30));
 
         lbHasta.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbHasta.setForeground(new java.awt.Color(98, 224, 215));
         lbHasta.setText("Hasta:");
-        jPanel13.add(lbHasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, -1, 30));
+        jPanel13.add(lbHasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, -1, 30));
 
         btnDia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dia.png"))); // NOI18N
         btnDia.setBorderPainted(false);
@@ -1119,16 +1135,31 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 btnDiaActionPerformed(evt);
             }
         });
-        jPanel13.add(btnDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 150, 50));
-
-        tfDesde.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel13.add(tfDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 115, 120, -1));
-
-        tfHasta.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel13.add(tfHasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 115, 110, -1));
+        jPanel13.add(btnDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, 150, 50));
 
         tfFecha.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel13.add(tfFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 115, 120, -1));
+        tfFecha.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tfFechaMouseClicked(evt);
+            }
+        });
+        jPanel13.add(tfFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 120, 30));
+
+        tfDesde.setBackground(new java.awt.Color(255, 255, 255));
+        tfDesde.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tfDesdeMouseClicked(evt);
+            }
+        });
+        jPanel13.add(tfDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 120, 30));
+
+        tfHasta.setBackground(new java.awt.Color(255, 255, 255));
+        tfHasta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tfHastaMouseClicked(evt);
+            }
+        });
+        jPanel13.add(tfHasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 120, 30));
 
         jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo.png"))); // NOI18N
         jPanel13.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
@@ -1181,7 +1212,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
                 TabCliente.removeAll();
                 TabCliente.add(PanelCliente);
-                btnGuardar.hide();
+                btnGuardar.setVisible(false);
                 // cliente = new ClienteDTO(cliente);
                 tfNombre.setText(cliente.getNombre());
                 tfDireccion.setText(cliente.getDireccion());
@@ -1196,13 +1227,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         } catch (Exception e) {
             TabCliente.removeAll();
             TabCliente.add(PanelCliente);
-            tfTelefono.setText("");
-            btnRegistrarCliente.setEnabled(false);
-            btnVerMapa.setEnabled(false);
-            btnActualizar.setEnabled(false);
-            btnEliminar.setEnabled(false);
+
+            btnRegistrarCliente.setVisible(false);
+            btnVerMapa.setVisible(false);
+            btnActualizar.setVisible(false);
+            btnEliminar.setVisible(false);
             tfTelefono2.setEnabled(false);
             tfTelefono2.setText(String.valueOf(tfTelefono.getText()));
+            tfTelefono.setText("");
             TabCliente.repaint();
             TabCliente.revalidate();
         }
@@ -1233,10 +1265,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         cliente = new ClienteDTO(tfNombre.getText(), tfTelefono.getText(), tfDireccion.getText());
         c.crear(cliente);
-        btnRegistrarCliente.setEnabled(true);
-        btnVerMapa.setEnabled(true);
-        btnActualizar.setEnabled(true);
-        btnEliminar.setEnabled(true);
+        btnRegistrarCliente.setVisible(true);
+        btnVerMapa.setVisible(true);
+        btnActualizar.setVisible(true);
+        btnEliminar.setVisible(true);
 
         tfNombre.setEnabled(false);
         tfDireccion.setEnabled(false);
@@ -1488,11 +1520,30 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
         // TODO add your handling code here:
-        setFilasPedidoFiltros();
+        if (tfDesde.getDate() != null && tfHasta.getDate() != null) {
+            setFilasPedidoPeriodo();
+        } else {
+            setFilasPedidoFiltros();
+        }
     }//GEN-LAST:event_jComboBox1ItemStateChanged
 
     private void btnEliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminar1ActionPerformed
+
         // TODO add your handling code here:
+        PedidoDTO pedidobuscar = new PedidoDTO(String.valueOf(tablaPedido.getValueAt(tablaPedido.getSelectedRow(), 1)));
+        System.out.println(pedidobuscar);
+        String[] opciones = {"Si", "No"};
+        int ax = JOptionPane.showOptionDialog(null, "¿Está seguro?", "Eliminar", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE, null, opciones, null);
+        if (ax == JOptionPane.YES_OPTION) {
+            c.eliminar(pedidobuscar);
+            if (tfDesde.getDate() != null && tfHasta.getDate() != null) {
+                setFilasPedidoPeriodo();
+            } else {
+                setFilasPedidoFiltros();
+            }
+        } else if (ax == JOptionPane.NO_OPTION) {
+
+        }
     }//GEN-LAST:event_btnEliminar1ActionPerformed
 
     private void tfFechaInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_tfFechaInputMethodTextChanged
@@ -1541,7 +1592,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void tfFechaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfFechaMouseClicked
         // TODO add your handling code here:
-        setFilasPedidoFiltros();
+
     }//GEN-LAST:event_tfFechaMouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -1551,6 +1602,16 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void tfHastaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfHastaMouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_tfHastaMouseClicked
+
+    private void tfDesdeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfDesdeMouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_tfDesdeMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1601,65 +1662,17 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         }
     }
 
-//    public void setFilasPedido() {
-//        limpiarTablaPedidos();
-//        ArrayList<PedidoDTO> lista = new ArrayList<PedidoDTO>();
-//        lista.addAll(PantallaPrincipal.c.listarPedidos());
-//        Object datos[] = new Object[5];
-//        for (int i = 0; i < lista.size(); i++) {
-//            datos[0] = lista.get(i).id;
-//            datos[1] = lista.get(i).getCliente().getTelefono();
-//            datos[2] = lista.get(i).getOrden();
-//            datos[3] = lista.get(i).getFecha();
-//            datos[4] = lista.get(i).isEntregado();
-//
-//            modelotabla1.addRow(datos);
-//        }
-//    }
-
-    public void setFilasPedidoFiltros() {
-        limpiarTablaPedidos();
-        ArrayList<PedidoDTO> lista = new ArrayList<PedidoDTO>();
-        lista.addAll(PantallaPrincipal.c.listarPedidos());
-        Object datos[] = new Object[5];
-        for (int i = 0; i < lista.size(); i++) {
-            if (tfFecha.getDate() == null) {
-
-                if (jComboBox1.getSelectedItem().equals("Entregado")) {
-
-                    if (lista.get(i).isEntregado()) {
-                        datos[0] = lista.get(i).id;
-                        datos[1] = lista.get(i).getCliente().getTelefono();
-                        datos[2] = lista.get(i).getOrden();
-                        datos[3] = lista.get(i).getFecha();
-                        datos[4] = lista.get(i).isEntregado();
-
-                        modelotabla1.addRow(datos);
-                    }
-                } else if (jComboBox1.getSelectedItem().equals("No entregado")) {
-                    if (!lista.get(i).isEntregado()) {
-                        datos[0] = lista.get(i).id;
-                        datos[1] = lista.get(i).getCliente().getTelefono();
-                        datos[2] = lista.get(i).getOrden();
-                        datos[3] = lista.get(i).getFecha();
-                        datos[4] = lista.get(i).isEntregado();
-
-                        modelotabla1.addRow(datos);
-                    }
-                } else {
-                    datos[0] = lista.get(i).id;
-                        datos[1] = lista.get(i).getCliente().getTelefono();
-                        datos[2] = lista.get(i).getOrden();
-                        datos[3] = lista.get(i).getFecha();
-                        datos[4] = lista.get(i).isEntregado();
-
-                        modelotabla1.addRow(datos);
-                }
-            } else {
-                Timestamp fecha = new Timestamp(tfFecha.getDate().getTime());
-                if (fecha.getDate() == lista.get(i).getFecha().getDate() && fecha.getMonth() == lista.get(i).getFecha().getMonth() && fecha.getYear() == lista.get(i).getFecha().getYear()) {
+    public void setFilasPedidoPeriodo() {
+        try {
+            limpiarTablaPedidos();
+            if (tfDesde.getDate() != null && tfHasta.getDate() != null) {
+                ArrayList<PedidoDTO> lista = new ArrayList<PedidoDTO>();
+                lista.addAll(c.listarPedidosPeriodo(tfDesde.getDate(), tfHasta.getDate()));
+                Object datos[] = new Object[5];
+                for (int i = 0; i < lista.size(); i++) {
 
                     if (jComboBox1.getSelectedItem().equals("Entregado")) {
+
                         if (lista.get(i).isEntregado()) {
                             datos[0] = lista.get(i).id;
                             datos[1] = lista.get(i).getCliente().getTelefono();
@@ -1690,7 +1703,88 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                     }
                 }
             }
+        } catch (Exception e) {
+        }
+    }
 
+    public void setFilasPedidoFiltros() {
+        try {
+
+            limpiarTablaPedidos();
+            ArrayList<PedidoDTO> lista = new ArrayList<PedidoDTO>();
+            lista.addAll(PantallaPrincipal.c.listarPedidos());
+            Object datos[] = new Object[5];
+            for (int i = 0; i < lista.size(); i++) {
+                if (tfFecha.getDate() == null) {
+
+                    if (jComboBox1.getSelectedItem().equals("Entregado")) {
+
+                        if (lista.get(i).isEntregado()) {
+                            datos[0] = lista.get(i).id;
+                            datos[1] = lista.get(i).getCliente().getTelefono();
+                            datos[2] = lista.get(i).getOrden();
+                            datos[3] = lista.get(i).getFecha();
+                            datos[4] = lista.get(i).isEntregado();
+
+                            modelotabla1.addRow(datos);
+                        }
+                    } else if (jComboBox1.getSelectedItem().equals("No entregado")) {
+                        if (!lista.get(i).isEntregado()) {
+                            datos[0] = lista.get(i).id;
+                            datos[1] = lista.get(i).getCliente().getTelefono();
+                            datos[2] = lista.get(i).getOrden();
+                            datos[3] = lista.get(i).getFecha();
+                            datos[4] = lista.get(i).isEntregado();
+
+                            modelotabla1.addRow(datos);
+                        }
+                    } else {
+                        datos[0] = lista.get(i).id;
+                        datos[1] = lista.get(i).getCliente().getTelefono();
+                        datos[2] = lista.get(i).getOrden();
+                        datos[3] = lista.get(i).getFecha();
+                        datos[4] = lista.get(i).isEntregado();
+
+                        modelotabla1.addRow(datos);
+                    }
+                } else {
+                    Timestamp fecha = new Timestamp(tfFecha.getDate().getTime());
+                    if (fecha.getDate() == lista.get(i).getFecha().getDate() && fecha.getMonth() == lista.get(i).getFecha().getMonth() && fecha.getYear() == lista.get(i).getFecha().getYear()) {
+
+                        if (jComboBox1.getSelectedItem().equals("Entregado")) {
+                            if (lista.get(i).isEntregado()) {
+                                datos[0] = lista.get(i).id;
+                                datos[1] = lista.get(i).getCliente().getTelefono();
+                                datos[2] = lista.get(i).getOrden();
+                                datos[3] = lista.get(i).getFecha();
+                                datos[4] = lista.get(i).isEntregado();
+
+                                modelotabla1.addRow(datos);
+                            }
+                        } else if (jComboBox1.getSelectedItem().equals("No entregado")) {
+                            if (!lista.get(i).isEntregado()) {
+                                datos[0] = lista.get(i).id;
+                                datos[1] = lista.get(i).getCliente().getTelefono();
+                                datos[2] = lista.get(i).getOrden();
+                                datos[3] = lista.get(i).getFecha();
+                                datos[4] = lista.get(i).isEntregado();
+
+                                modelotabla1.addRow(datos);
+                            }
+                        } else {
+                            datos[0] = lista.get(i).id;
+                            datos[1] = lista.get(i).getCliente().getTelefono();
+                            datos[2] = lista.get(i).getOrden();
+                            datos[3] = lista.get(i).getFecha();
+                            datos[4] = lista.get(i).isEntregado();
+
+                            modelotabla1.addRow(datos);
+                        }
+                    }
+                }
+
+            }
+        } catch (Exception e) {
         }
     }
 
